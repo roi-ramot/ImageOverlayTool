@@ -1,0 +1,14 @@
+C:\Users\CodeValue\Documents\Visual Studio 2013\Projects\ImageOverlay2.0\ImageOverlay2.0\bin\Release\ImageOverlay2.0.exe.config
+C:\Users\CodeValue\Documents\Visual Studio 2013\Projects\ImageOverlay2.0\ImageOverlay2.0\bin\Release\ImageOverlay2.0.exe
+C:\Users\CodeValue\Documents\Visual Studio 2013\Projects\ImageOverlay2.0\ImageOverlay2.0\bin\Release\ImageOverlay2.0.pdb
+C:\Users\CodeValue\Documents\Visual Studio 2013\Projects\ImageOverlay2.0\ImageOverlay2.0\obj\Release\App.baml
+C:\Users\CodeValue\Documents\Visual Studio 2013\Projects\ImageOverlay2.0\ImageOverlay2.0\obj\Release\MainWindow.g.cs
+C:\Users\CodeValue\Documents\Visual Studio 2013\Projects\ImageOverlay2.0\ImageOverlay2.0\obj\Release\App.g.cs
+C:\Users\CodeValue\Documents\Visual Studio 2013\Projects\ImageOverlay2.0\ImageOverlay2.0\obj\Release\ImageOverlay2.0_MarkupCompile.cache
+C:\Users\CodeValue\Documents\Visual Studio 2013\Projects\ImageOverlay2.0\ImageOverlay2.0\obj\Release\ImageOverlay2.0_MarkupCompile.lref
+C:\Users\CodeValue\Documents\Visual Studio 2013\Projects\ImageOverlay2.0\ImageOverlay2.0\obj\Release\MainWindow.baml
+C:\Users\CodeValue\Documents\Visual Studio 2013\Projects\ImageOverlay2.0\ImageOverlay2.0\obj\Release\ImageOverlay2.0.g.resources
+C:\Users\CodeValue\Documents\Visual Studio 2013\Projects\ImageOverlay2.0\ImageOverlay2.0\obj\Release\ImageOverlay2._0.Properties.Resources.resources
+C:\Users\CodeValue\Documents\Visual Studio 2013\Projects\ImageOverlay2.0\ImageOverlay2.0\obj\Release\ImageOverlay2.0.csproj.GenerateResource.Cache
+C:\Users\CodeValue\Documents\Visual Studio 2013\Projects\ImageOverlay2.0\ImageOverlay2.0\obj\Release\ImageOverlay2.0.exe
+C:\Users\CodeValue\Documents\Visual Studio 2013\Projects\ImageOverlay2.0\ImageOverlay2.0\obj\Release\ImageOverlay2.0.pdb

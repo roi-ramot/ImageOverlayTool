@@ -1,0 +1,270 @@
+﻿<Window x:Class="ImageOverlay2._0.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:behaviors="clr-namespace:ImageOverlay2._0.Behaviors"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:data="clr-namespace:ImageOverlay2._0"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        x:Name="Window"
+        Title="MainWindow"
+        AllowsTransparency="True"
+        Background="Transparent"
+        ResizeMode="CanResize"
+        Topmost="{Binding IsAllwaysOnTop}"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        WindowStyle="None"
+        d:DataContext="{d:DesignInstance data:MainViewModel}"
+        mc:Ignorable="d">
+    <Window.InputBindings>
+        <KeyBinding Key="O"
+                    Command="{Binding ImportImageCommand}"
+                    Modifiers="Control" />
+    </Window.InputBindings>
+    <i:Interaction.Behaviors>
+        <behaviors:DragDropBehavior Data="{Binding DropFile, Mode=TwoWay}" />
+    </i:Interaction.Behaviors>
+    <Window.Style>
+        <Style TargetType="{x:Type Window}">
+            <Setter Property="WindowChrome.WindowChrome">
+                <Setter.Value>
+                    <WindowChrome CaptionHeight="999999"
+                                  ResizeBorderThickness="1" />
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Window}">
+                        <Grid>
+                            <Border Background="Transparent">
+                                <ContentPresenter Content="{TemplateBinding Content}" />
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Style>
+    <Grid  >
+        <xctk:MagnifierManager.Magnifier>
+            <xctk:Magnifier BorderBrush="Red"
+                            BorderThickness="1"
+                            Radius="75"
+                            ZoomFactor=".3526" />
+        </xctk:MagnifierManager.Magnifier>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{Binding Column0Width}" />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="{Binding Column4Width}" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="{Binding Row0Height}" />
+            <RowDefinition Height="5" />
+            <RowDefinition />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="{Binding Row4Height}" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="2"
+              Grid.Column="2">
+            <Image Opacity="{Binding Value,
+                                     ElementName=OpacitySlider,
+                                     UpdateSourceTrigger=PropertyChanged}"
+                   Source="{Binding Image}"
+                   Stretch="{Binding StrechBeahvior}" />
+
+        </Grid>
+        <GridSplitter Grid.Row="0"
+                      Grid.RowSpan="5"
+                      Grid.Column="1"
+                      Style="{StaticResource GridSplitterStyle}"
+                      WindowChrome.IsHitTestVisibleInChrome="True" />
+        <GridSplitter Grid.Row="0"
+                      Grid.RowSpan="5"
+                      Grid.Column="3"
+                      Style="{StaticResource GridSplitterStyle}"
+                      WindowChrome.IsHitTestVisibleInChrome="True" />
+        <GridSplitter Grid.Row="1"
+                      Grid.Column="0"
+                      Grid.ColumnSpan="5"
+                      Style="{StaticResource GridSplitterStyle}"
+                      WindowChrome.IsHitTestVisibleInChrome="True" />
+        <GridSplitter Grid.Row="3"
+                      Grid.Column="0"
+                      Grid.ColumnSpan="5"
+                      Style="{StaticResource GridSplitterStyle}"
+                      WindowChrome.IsHitTestVisibleInChrome="True" />
+
+        <Button Grid.Row="0"
+                Grid.RowSpan="5"
+                Grid.Column="1"
+                Width="15"
+                Height="15"
+                Margin="0 0 -15 0"
+                VerticalAlignment="Center"
+                Command="{Binding MoveSpliterColumn0RightCommand}"
+                Content="{StaticResource ArrowRightGeometry}"
+                Style="{StaticResource VectorButton}" />
+        <Button Grid.Row="0"
+                Grid.RowSpan="5"
+                Grid.Column="1"
+                Width="15"
+                Height="15"
+                Margin="-15 0 0 0"
+                VerticalAlignment="Center"
+                Command="{Binding MoveSpliterColumn0LeftCommand}"
+                Content="{StaticResource ArrowLeftGeometry}"
+                Style="{StaticResource VectorButton}" />
+
+        <Button Grid.Row="0"
+                Grid.RowSpan="5"
+                Grid.Column="3"
+                Width="15"
+                Height="15"
+                Margin="0 0 -15 0"
+                VerticalAlignment="Center"
+                Command="{Binding MoveSpliterColumn4RightCommand}"
+                Content="{StaticResource ArrowRightGeometry}"
+                Style="{StaticResource VectorButton}" />
+        <Button Grid.Row="0"
+                Grid.RowSpan="5"
+                Grid.Column="3"
+                Width="15"
+                Height="15"
+                Margin="-15 0 0 0"
+                VerticalAlignment="Center"
+                Command="{Binding MoveSpliterColumn4LeftCommand}"
+                Content="{StaticResource ArrowLeftGeometry}"
+                Style="{StaticResource VectorButton}" />
+
+        <Button Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="5"
+                Width="15"
+                Height="15"
+                Margin="0 -15 0 0"
+                HorizontalAlignment="Center"
+                Command="{Binding MoveSpliterRow0UpCommand}"
+                Content="{StaticResource ArrowUpGeometry}"
+                Style="{StaticResource VectorButton}" />
+        <Button Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="5"
+                Width="15"
+                Height="15"
+                Margin="0 0 0 -15"
+                VerticalAlignment="Center"
+                Command="{Binding MoveSpliterRow0DownCommand}"
+                Content="{StaticResource ArrowDownGeometry}"
+                Style="{StaticResource VectorButton}" />
+
+        <Button Grid.Row="3"
+                Grid.Column="0"
+                Grid.ColumnSpan="5"
+                Width="15"
+                Height="15"
+                Margin="0 -15 0 0"
+                HorizontalAlignment="Center"
+                Command="{Binding MoveSpliterRow4UpCommand}"
+                Content="{StaticResource ArrowUpGeometry}"
+                Style="{StaticResource VectorButton}" />
+        <Button Grid.Row="3"
+                Grid.Column="0"
+                Grid.ColumnSpan="5"
+                Width="15"
+                Height="15"
+                Margin="0 0 0 -15"
+                VerticalAlignment="Center"
+                Command="{Binding MoveSpliterRow4DownCommand}"
+                Content="{StaticResource ArrowDownGeometry}"
+                Style="{StaticResource VectorButton}" />
+
+        <StackPanel Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="5"
+                    Margin="0 5 0 0"
+                    VerticalAlignment="Top">
+            <Border Background="{StaticResource ManuBackground}"
+                    Padding="10"
+                    Visibility="{Binding IsChecked,
+                                         ElementName=ExpandCollapseMenuToggle,
+                                         Converter={StaticResource BoolToVisCnverter}}">
+                <DockPanel>
+                    <Button Command="{Binding ImportImageCommand}"
+                            Content=" Open file"
+                            Padding="10 5"
+                            WindowChrome.IsHitTestVisibleInChrome="True" />
+                    <CheckBox Margin="10 0 0 0"
+                              VerticalAlignment="Center"
+                              Content="Allways on top"
+                              IsChecked="{Binding IsAllwaysOnTop}"
+                              WindowChrome.IsHitTestVisibleInChrome="True" />
+                    <TextBlock Margin="20 0 0 0"
+                               VerticalAlignment="Center"
+                               Text="Strech behavior:   " />
+                    <ComboBox Width="100"
+                              VerticalAlignment="Center"
+                              ItemsSource="{Binding StrechBeahviors}"
+                              SelectedItem="{Binding StrechBeahvior}"
+                              WindowChrome.IsHitTestVisibleInChrome="True" />
+                    <CheckBox Margin="20 0 0 0"
+                              VerticalAlignment="Center"
+                              Content="Hide controls"
+                              IsChecked="{Binding ShouldHideControls}"
+                              WindowChrome.IsHitTestVisibleInChrome="True" />
+                    <CheckBox Margin="20 0 0 0"
+                              VerticalAlignment="Center"
+                              Content="Activate Magnifier"
+                              IsChecked="{Binding ActivateMagnifier}"
+                              WindowChrome.IsHitTestVisibleInChrome="True" />
+                    <Path Margin="20 0 5 0"
+                          Data="{StaticResource ClosedEyeIcon}"
+                          Style="{StaticResource IconPathStyle}" />
+                    <Button Width="15"
+                            Height="15"
+                            Margin="10 0 5 5"
+                            VerticalAlignment="Top"
+                            BorderThickness="0"
+                            Command="{Binding CloseAppCommand}"
+                            CommandParameter="{Binding ElementName=Window}"
+                            Content="{StaticResource CloseAppGeometry}"
+                            DockPanel.Dock="Right"
+                            Style="{StaticResource VectorButton}"
+                            WindowChrome.IsHitTestVisibleInChrome="True" />
+                    <Path Margin="5 0 20 0"
+                          Data="{StaticResource EyeIcon}"
+                          DockPanel.Dock="Right"
+                          Style="{StaticResource IconPathStyle}" />
+
+                    <Slider x:Name="OpacitySlider"
+                            VerticalAlignment="Center"
+                            Maximum="1"
+                            Minimum="0"
+                            WindowChrome.IsHitTestVisibleInChrome="True"
+                            Value="1" />
+
+                </DockPanel>
+            </Border>
+            <ToggleButton x:Name="ExpandCollapseMenuToggle"
+                          Background="LightGray"
+                          IsChecked="True"
+                          WindowChrome.IsHitTestVisibleInChrome="True">
+                <ToggleButton.Template>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Padding="{TemplateBinding Padding}">
+                            <Path x:Name="Path"
+                                  Data="{StaticResource ExpandCollapseGeometry}"
+                                  Style="{StaticResource ExpanderToggleStyle}" />
+                        </Border>
+                    </ControlTemplate>
+                </ToggleButton.Template>
+            </ToggleButton>
+        </StackPanel>
+    </Grid>
+</Window>
